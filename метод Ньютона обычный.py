@@ -13,7 +13,7 @@ def deriv(num,arr):
     return dy
 def get_param():
     a = int(input("Введите точку a: "))
-    b = int(input("Введите точку b: "))
+    b = int(input("Введите точку b: ")) 
     E = int(input("Введите точность E: "))
     E = 10 ** (-E)  # Преобразование точности
     numbers = input("Введите числа, разделенные пробелами: ")
@@ -27,9 +27,10 @@ def newton_method():
     max_iterations=100
     while iterations<max_iterations:
         x_1=x_0-(func(x_0,arr)/deriv(x_0,arr))
-        if (x_1-x_0)<E :
+        if abs(x_1-x_0)<E :
             y=x_1
             break
+        print(x_0,x_1)
         x_0=x_1
         iterations+=1
     return y
